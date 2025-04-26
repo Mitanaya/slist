@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Archi TrueBeauty – Services</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: #fff;
+      color: #333;
+      scroll-behavior: smooth;
+    }
+    header {
+      background: #f8f0f5;
+      padding: 2rem 1rem;
+      text-align: center;
+    }
+    header h1 {
+      font-size: 2.5rem;
+      margin: 0;
+      color: #c2185b;
+    }
+    header p {
+      font-size: 1.2rem;
+      color: #555;
+    }
+    nav {
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      background: #fff;
+      padding: 1rem 0;
+      border-bottom: 1px solid #eee;
+    }
+    nav a {
+      text-decoration: none;
+      color: #c2185b;
+      font-weight: bold;
+    }
+    section {
+      max-width: 1000px;
+      margin: auto;
+      padding: 2rem 1rem;
+    }
+    section h2 {
+      color: #c2185b;
+      margin-bottom: 1rem;
+      border-bottom: 2px solid #c2185b;
+      padding-bottom: 0.5rem;
+    }
+    .service-category {
+      margin-bottom: 2rem;
+    }
+    .service-category h3 {
+      color: #7b1fa2;
+      margin-top: 1rem;
+      margin-bottom: 1rem;
+    }
+    .service-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+    .service-list li {
+      display: flex;
+      justify-content: space-between;
+      padding: 0.5rem 0;
+      border-bottom: 1px solid #eee;
+    }
+    footer {
+      background: #f8f0f5;
+      padding: 2rem 1rem;
+      text-align: center;
+      margin-top: 2rem;
+    }
+    .social-links a {
+      margin: 0 1rem;
+      text-decoration: none;
+      color: #c2185b;
+      font-size: 1.2rem;
+    }
+    @media (max-width: 600px) {
+      nav {
+        flex-direction: column;
+        gap: 1rem;
+      }
+      .service-list li {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Archi TrueBeauty</h1>
+    <p>Inner Beauty is True Beauty</p>
+  </header>
+
+  <nav>
+    <a href="#services">Services</a>
+    <a href="#about">About</a>
+    <a href="#contact">Contact</a>
+  </nav>
+
+  <section id="services">
+    <h2>Our Services</h2>
+
+    <div class="service-category">
+      <h3>Threading</h3>
+      <ul class="service-list">
+        <li><span>Eyebrows</span><span>$10</span></li>
+        <li><span>Forehead</span><span>$5</span></li>
+        <li><span>Upper Lip</span><span>$5</span></li>
+        <li><span>Chin</span><span>$5</span></li>
+        <li><span>Sides</span><span>$12</span></li>
+        <li><span>Neck</span><span>$10</span></li>
+        <li><span>Full Face (Threading)</span><span>$30</span></li>
+      </ul>
+    </div>
+
+    <div class="service-category">
+      <h3>Waxing</h3>
+      <ul class="service-list">
+        <li><span>Full Face (Wax)</span><span>$35</span></li>
+        <li><span>Eyebrows</span><span>$12</span></li>
+        <li><span>Forehead</span><span>$8</span></li>
+        <li><span>Upper Lip</span><span>$8</span></li>
+        <li><span>Chin</span><span>$8</span></li>
+        <li><span>Sides</span><span>$15</span></li>
+        <li><span>Neck</span><span>$12</span></li>
+        <li><span>Full Arms</span><span>$35</span></li>
+        <li><span>Half Arms</span><span>$25</span></li>
+        <li><span>Underarms</span><span>$15</span></li>
+        <li><span>Full Legs</span><span>$55</span></li>
+        <li><span>Half Legs</span><span>$35</span></li>
+        <li><span>Full Back</span><span>$50</span></li>
+        <li><span>Half Back</span><span>$30</span></li>
+        <li><span>Full Stomach</span><span>$40</span></li>
+        <li><span>Half Stomach</span><span>$25</span></li>
+        <li><span>Brazilian</span><span>$50</span></li>
+        <li><span>Bikini Line</span><span>$40</span></li>
+      </ul>
+    </div>
+
+    <div class="service-category">
+      <h3>Facials</h3>
+      <ul class="service-list">
+        <li><span>Regular Facial</span><span>$50</span></li>
+        <li><span>Herbal Facial</span><span>$60</span></li>
+        <li><span>Whitening Facial</span><span>$70</span></li>
+        <li><span>Acne Facial</span><span>$70</span></li>
+        <li><span>Anti-aging Facial</span><span>$70</span></li>
+        <li><span>Diamond Facial</span><span>$80</span></li>
+        <li><span>Gold Facial</span><span>$80</span></li>
+        <li><span>Cleanup</span><span>$40</span></li>
+        <li><span>Hydra Facial</span><span>$120</span></li>
+      </ul>
+    </div>
+
+    <div class="service-category">
+      <h3>Haircuts</h3>
+      <ul class="service-list">
+        <li><span>Haircut</span><span>$30+</span></li>
+        <li><span>Kids Haircut</span><span>$20+</span></li>
+      </ul>
+    </div>
+
+    <div class="service-category">
+      <h3>Hairstyling</h3>
+      <ul class="service-list">
+        <li><span>Shampoo + Blow Dry</span><span>$30+</span></li>
+        <li><span>Ironing</span><span>$40+</span></li>
+        <li><span>Curls</span><span>$40+</span></li>
+      </ul>
+    </div>
+
+    <div class="service-category">
+      <h3>Makeup</h3>
+      <ul class="service-list">
+        <li><span>Party Makeup</span><span>$120</span></li>
+        <li><span>Bridal Makeup</span><span>$350</span></li>
+      </ul>
+    </div>
+
+    <div class="service-category">
+      <h3>Skin & Hair Analysis</h3>
+      <ul class="service-list">
+        <li><span>Skin & Hair Analysis (Using Magnifier)</span><span>$20</span></li>
+      </ul>
+    </div>
+
+  </section>
+
+  <section id="about">
+    <h2>About Us</h2>
+    <p>At Archi TrueBeauty, satisfying clients for their salon needs is our passion. Through ongoing education, we stay up to date on Indian haircut and color styles and techniques to bring you the looks you want. Your inner beauty is best revealed when you and your skin are relaxed. Enjoy the best facials in town, whether you need a cleanup or a Hydra Facial — we have you covered.</p>
+  </section>
+
+  <section id="contact">
+    <h2>Contact & Social</h2>
+    <p>Phone: <a href="tel:+12677524140">(267) 752-4140</a></p>
+    <p>Email: <a href="mailto:architruebeauty@example.com">architruebeauty@example.com</a></p>
+    <div class="social-links">
+      <a href="https://www.facebook.com/Archi151/" target="_blank">Facebook</a>
+      <a href="https://www.instagram.com/architruebeauty" target="_blank">Instagram</a>
+    </div>
+  </section>
+
+  <footer>
+    <p>&copy; 2025 Archi TrueBeauty – All Rights Reserved.</p>
+  </footer>
+
+</body>
+</html>
