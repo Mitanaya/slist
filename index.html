@@ -3,17 +3,23 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Salon Service Rates</title>
+  <title>Archi True Beauty | Salon Service Rates</title>
   <style>
     :root {
-      --bg: #f8f8f7;
-      --card: #ffffff;
-      --text: #1f1f1f;
-      --muted: #666666;
-      --border: #e7e7e7;
-      --shadow: 0 8px 24px rgba(0, 0, 0, 0.05);
-      --radius: 18px;
-      --max-width: 1200px;
+      --bg: #fcf7fb;
+      --bg-soft: #fff9fc;
+      --card: rgba(255, 255, 255, 0.82);
+      --text: #1d1b1f;
+      --muted: #6f6672;
+      --line: rgba(34, 25, 36, 0.08);
+      --accent: #d86aa7;
+      --accent-dark: #b84f89;
+      --accent-soft: rgba(216, 106, 167, 0.12);
+      --gold: #caa45f;
+      --shadow: 0 18px 40px rgba(116, 63, 100, 0.12);
+      --radius-xl: 26px;
+      --radius-lg: 18px;
+      --max-width: 1240px;
     }
 
     * {
@@ -27,9 +33,12 @@
     body {
       margin: 0;
       font-family: Arial, Helvetica, sans-serif;
-      background: var(--bg);
       color: var(--text);
-      line-height: 1.5;
+      background:
+        radial-gradient(circle at top left, rgba(216, 106, 167, 0.14), transparent 28%),
+        radial-gradient(circle at top right, rgba(202, 164, 95, 0.14), transparent 24%),
+        linear-gradient(180deg, #fffafd 0%, #fcf7fb 38%, #f9f4f8 100%);
+      line-height: 1.55;
     }
 
     .container {
@@ -37,36 +46,106 @@
       margin: 0 auto;
     }
 
-    header {
-      padding: 56px 0 28px;
-      text-align: center;
+    .hero {
+      position: relative;
+      overflow: hidden;
+      padding: 74px 0 44px;
     }
 
-    .eyebrow {
+    .hero::before,
+    .hero::after {
+      content: "";
+      position: absolute;
+      border-radius: 999px;
+      filter: blur(10px);
+      pointer-events: none;
+    }
+
+    .hero::before {
+      width: 260px;
+      height: 260px;
+      top: -60px;
+      left: -80px;
+      background: rgba(216, 106, 167, 0.12);
+    }
+
+    .hero::after {
+      width: 300px;
+      height: 300px;
+      top: -70px;
+      right: -90px;
+      background: rgba(202, 164, 95, 0.12);
+    }
+
+    .hero-card {
+      position: relative;
+      background: linear-gradient(135deg, rgba(255,255,255,0.92), rgba(255,250,253,0.88));
+      border: 1px solid rgba(255,255,255,0.75);
+      border-radius: 32px;
+      box-shadow: 0 24px 60px rgba(138, 92, 122, 0.14);
+      padding: 40px 28px;
+      text-align: center;
+      backdrop-filter: blur(10px);
+    }
+
+    .badge {
       display: inline-block;
-      margin-bottom: 10px;
-      font-size: 0.9rem;
-      letter-spacing: 0.18em;
+      padding: 8px 16px;
+      border-radius: 999px;
+      background: var(--accent-soft);
+      color: var(--accent-dark);
+      font-size: 0.82rem;
+      font-weight: 700;
+      letter-spacing: 0.14em;
       text-transform: uppercase;
-      color: var(--muted);
+      margin-bottom: 16px;
     }
 
     h1 {
       margin: 0;
-      font-size: clamp(2rem, 4vw, 3.4rem);
-      font-weight: 700;
-      letter-spacing: -0.03em;
+      font-size: clamp(2.35rem, 5vw, 4.5rem);
+      line-height: 1.04;
+      letter-spacing: -0.04em;
     }
 
-    .intro {
-      max-width: 720px;
-      margin: 14px auto 0;
+    .salon-name {
+      display: block;
+      background: linear-gradient(90deg, #111111 0%, var(--accent-dark) 50%, var(--gold) 100%);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    .hero p {
+      max-width: 760px;
+      margin: 16px auto 0;
+      font-size: 1.05rem;
       color: var(--muted);
-      font-size: 1rem;
+    }
+
+    .hero-note {
+      margin-top: 22px;
+      display: inline-block;
+      padding: 10px 18px;
+      border-radius: 999px;
+      background: #ffffff;
+      border: 1px solid rgba(34, 25, 36, 0.08);
+      box-shadow: 0 10px 26px rgba(0, 0, 0, 0.05);
+      font-size: 0.95rem;
+      color: var(--muted);
     }
 
     main {
-      padding: 10px 0 48px;
+      padding: 8px 0 52px;
+    }
+
+    .section-title {
+      margin: 0 0 18px;
+      font-size: 1rem;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--muted);
     }
 
     .grid {
@@ -76,23 +155,36 @@
     }
 
     .card {
+      position: relative;
       background: var(--card);
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
+      border: 1px solid rgba(255, 255, 255, 0.75);
+      border-radius: var(--radius-xl);
       box-shadow: var(--shadow);
       padding: 24px 22px;
+      backdrop-filter: blur(8px);
+      overflow: hidden;
+    }
+
+    .card::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 4px;
+      background: linear-gradient(90deg, var(--accent), var(--gold));
     }
 
     .card h2 {
       margin: 0 0 6px;
-      font-size: 1.4rem;
-      font-weight: 700;
+      font-size: 1.42rem;
+      letter-spacing: -0.02em;
     }
 
     .subtitle {
-      margin: 0 0 18px;
+      margin: 0 0 16px;
       color: var(--muted);
-      font-size: 0.95rem;
+      font-size: 0.96rem;
       font-style: italic;
     }
 
@@ -103,8 +195,8 @@
     }
 
     .service-item {
-      padding: 12px 0;
-      border-bottom: 1px solid #efefef;
+      padding: 13px 0;
+      border-bottom: 1px solid var(--line);
     }
 
     .service-item:last-child {
@@ -120,184 +212,132 @@
     }
 
     .service-name {
-      font-size: 1rem;
-      font-weight: 500;
       flex: 1;
       min-width: 0;
+      font-size: 1rem;
+      font-weight: 600;
     }
 
     .price {
-      font-weight: 700;
       white-space: nowrap;
-      text-align: right;
+      font-weight: 800;
+      font-size: 1rem;
+      color: #111111;
+      background: linear-gradient(180deg, rgba(216, 106, 167, 0.12), rgba(202, 164, 95, 0.12));
+      padding: 6px 10px;
+      border-radius: 999px;
+      border: 1px solid rgba(216, 106, 167, 0.08);
+    }
+
+    .price.call {
+      color: var(--accent-dark);
     }
 
     .note {
-      margin-top: 4px;
+      margin-top: 6px;
       color: var(--muted);
       font-size: 0.92rem;
       font-style: italic;
     }
 
     footer {
-      padding: 10px 0 40px;
-      text-align: center;
-      color: var(--muted);
-      font-size: 0.95rem;
+      padding: 8px 0 48px;
     }
 
-    @media (max-width: 860px) {
+    .footer-card {
+      background: linear-gradient(135deg, #ffffff, #fff8fc);
+      border: 1px solid rgba(34, 25, 36, 0.08);
+      border-radius: 22px;
+      padding: 18px 20px;
+      text-align: center;
+      color: var(--muted);
+      box-shadow: 0 14px 30px rgba(116, 63, 100, 0.08);
+    }
+
+    @media (max-width: 920px) {
       .grid {
         grid-template-columns: 1fr;
+      }
+
+      .hero {
+        padding-top: 52px;
       }
     }
 
     @media (max-width: 560px) {
-      header {
-        padding-top: 42px;
+      .hero-card {
+        padding: 30px 18px;
+        border-radius: 24px;
       }
 
       .card {
         padding: 20px 16px;
+        border-radius: 22px;
       }
 
       .service-row {
         flex-direction: column;
-        gap: 4px;
+        gap: 8px;
       }
 
       .price {
-        text-align: left;
+        white-space: normal;
+        align-self: flex-start;
       }
     }
   </style>
 </head>
 <body>
-  <header>
+  <header class="hero">
     <div class="container">
-      <div class="eyebrow">Beauty Salon</div>
-      <h1>Salon Service Rates</h1>
-      <p class="intro">
-        A simple and elegant service menu with clear pricing for salon treatments, hair services, and facials.
-      </p>
+      <div class="hero-card">
+        <div class="badge">Luxury Beauty Studio</div>
+        <h1>
+          <span class="salon-name">Archi True Beauty</span>
+          Salon Service Rates
+        </h1>
+        <p>
+          Discover our beauty, hair, and facial services in a clean, modern, and elegant price menu designed for easy browsing on desktop and mobile.
+        </p>
+        <div class="hero-note">Elegant care • Modern style • Transparent pricing</div>
+      </div>
     </div>
   </header>
 
   <main>
     <div class="container">
+      <p class="section-title">Service Menu</p>
+
       <div class="grid">
         <section class="card">
           <h2>Hair Treatments</h2>
           <ul class="service-list">
+            <li class="service-item"><div class="service-row"><span class="service-name">Hair Spa</span><span class="price">$100</span></div></li>
+            <li class="service-item"><div class="service-row"><span class="service-name">Hair Fall Treatment</span><span class="price call">Call for pricing</span></div></li>
+            <li class="service-item"><div class="service-row"><span class="service-name">Dandruff Treatment</span><span class="price call">Call for pricing</span></div></li>
+            <li class="service-item"><div class="service-row"><span class="service-name">Olaplex Treatment</span><span class="price call">Call for pricing</span></div></li>
+            <li class="service-item"><div class="service-row"><span class="service-name">Botox Treatment</span><span class="price call">Call for pricing</span></div></li>
             <li class="service-item">
-              <div class="service-row">
-                <span class="service-name">Hair Spa</span>
-                <span class="price">$100</span>
-              </div>
-            </li>
-            <li class="service-item">
-              <div class="service-row">
-                <span class="service-name">Hair Fall Treatment</span>
-                <span class="price">Call for pricing</span>
-              </div>
-            </li>
-            <li class="service-item">
-              <div class="service-row">
-                <span class="service-name">Dandruff Treatment</span>
-                <span class="price">Call for pricing</span>
-              </div>
-            </li>
-            <li class="service-item">
-              <div class="service-row">
-                <span class="service-name">Olaplex Treatment</span>
-                <span class="price">Call for pricing</span>
-              </div>
-            </li>
-            <li class="service-item">
-              <div class="service-row">
-                <span class="service-name">Botox Treatment</span>
-                <span class="price">Call for pricing</span>
-              </div>
-            </li>
-            <li class="service-item">
-              <div class="service-row">
-                <span class="service-name">Nano / Silky Treatment</span>
-                <span class="price">$100</span>
-              </div>
+              <div class="service-row"><span class="service-name">Nano / Silky Treatment</span><span class="price">$100</span></div>
               <div class="note">Shoulder length</div>
             </li>
-            <li class="service-item">
-              <div class="service-row">
-                <span class="service-name">Collagen Treatment</span>
-                <span class="price">Call for pricing</span>
-              </div>
-            </li>
-            <li class="service-item">
-              <div class="service-row">
-                <span class="service-name">Keratin Treatment</span>
-                <span class="price">Call for pricing</span>
-              </div>
-            </li>
-            <li class="service-item">
-              <div class="service-row">
-                <span class="service-name">Rebonding</span>
-                <span class="price">Call for pricing</span>
-              </div>
-            </li>
-            <li class="service-item">
-              <div class="service-row">
-                <span class="service-name">Smoothing</span>
-                <span class="price">Call for pricing</span>
-              </div>
-            </li>
-            <li class="service-item">
-              <div class="service-row">
-                <span class="service-name">Hair Straightening Treatment</span>
-                <span class="price">Call for pricing</span>
-              </div>
-            </li>
+            <li class="service-item"><div class="service-row"><span class="service-name">Collagen Treatment</span><span class="price call">Call for pricing</span></div></li>
+            <li class="service-item"><div class="service-row"><span class="service-name">Keratin Treatment</span><span class="price call">Call for pricing</span></div></li>
+            <li class="service-item"><div class="service-row"><span class="service-name">Rebonding</span><span class="price call">Call for pricing</span></div></li>
+            <li class="service-item"><div class="service-row"><span class="service-name">Smoothing</span><span class="price call">Call for pricing</span></div></li>
+            <li class="service-item"><div class="service-row"><span class="service-name">Hair Straightening Treatment</span><span class="price call">Call for pricing</span></div></li>
           </ul>
         </section>
 
         <section class="card">
           <h2>Hair Color</h2>
           <ul class="service-list">
-            <li class="service-item">
-              <div class="service-row">
-                <span class="service-name">Root Touch Up (gray hair, 2")</span>
-                <span class="price">$70</span>
-              </div>
-            </li>
-            <li class="service-item">
-              <div class="service-row">
-                <span class="service-name">Global Color (full hair)</span>
-                <span class="price">$120–$150</span>
-              </div>
-            </li>
-            <li class="service-item">
-              <div class="service-row">
-                <span class="service-name">Highlights</span>
-                <span class="price">$10 per foil</span>
-              </div>
-            </li>
-            <li class="service-item">
-              <div class="service-row">
-                <span class="service-name">Balayage / Ombre</span>
-                <span class="price">Call for pricing</span>
-              </div>
-            </li>
-            <li class="service-item">
-              <div class="service-row">
-                <span class="service-name">Root touch up (No heat work)</span>
-                <span class="price">$40</span>
-              </div>
-            </li>
-            <li class="service-item">
-              <div class="service-row">
-                <span class="service-name">Highlights of global / without bleach</span>
-                <span class="price">Call for pricing</span>
-              </div>
-            </li>
+            <li class="service-item"><div class="service-row"><span class="service-name">Root Touch Up (gray hair, 2")</span><span class="price">$70</span></div></li>
+            <li class="service-item"><div class="service-row"><span class="service-name">Global Color (full hair)</span><span class="price">$120–$150</span></div></li>
+            <li class="service-item"><div class="service-row"><span class="service-name">Highlights</span><span class="price">$10 per foil</span></div></li>
+            <li class="service-item"><div class="service-row"><span class="service-name">Balayage / Ombre</span><span class="price call">Call for pricing</span></div></li>
+            <li class="service-item"><div class="service-row"><span class="service-name">Root touch up (No heat work)</span><span class="price">$40</span></div></li>
+            <li class="service-item"><div class="service-row"><span class="service-name">Highlights of global / without bleach</span><span class="price call">Call for pricing</span></div></li>
           </ul>
         </section>
 
@@ -305,79 +345,21 @@
           <h2>Haircut including blow dry</h2>
           <p class="subtitle">No hair wash</p>
           <ul class="service-list">
+            <li class="service-item"><div class="service-row"><span class="service-name">Straight cut</span><span class="price">$20</span></div></li>
+            <li class="service-item"><div class="service-row"><span class="service-name">U cut</span><span class="price">$20</span></div></li>
+            <li class="service-item"><div class="service-row"><span class="service-name">Layer cut</span><span class="price">$25–$45</span></div></li>
+            <li class="service-item"><div class="service-row"><span class="service-name">Steps cut</span><span class="price">$25–$45</span></div></li>
+            <li class="service-item"><div class="service-row"><span class="service-name">2-layer with step cut</span><span class="price">$25–$45</span></div></li>
+            <li class="service-item"><div class="service-row"><span class="service-name">Bob / Inverted / Any short cut</span><span class="price">$35–$45</span></div></li>
+            <li class="service-item"><div class="service-row"><span class="service-name">All types of bangs</span><span class="price">$10–$20</span></div></li>
+            <li class="service-item"><div class="service-row"><span class="service-name">Butterfly cut</span><span class="price">$25–$45</span></div></li>
+            <li class="service-item"><div class="service-row"><span class="service-name">Fox cut</span><span class="price call">Call for pricing</span></div></li>
+            <li class="service-item"><div class="service-row"><span class="service-name">Face framing</span><span class="price call">Call for pricing</span></div></li>
             <li class="service-item">
-              <div class="service-row">
-                <span class="service-name">Straight cut</span>
-                <span class="price">$20</span>
-              </div>
-            </li>
-            <li class="service-item">
-              <div class="service-row">
-                <span class="service-name">U cut</span>
-                <span class="price">$20</span>
-              </div>
-            </li>
-            <li class="service-item">
-              <div class="service-row">
-                <span class="service-name">Layer cut</span>
-                <span class="price">$25–$45</span>
-              </div>
-            </li>
-            <li class="service-item">
-              <div class="service-row">
-                <span class="service-name">Steps cut</span>
-                <span class="price">$25–$45</span>
-              </div>
-            </li>
-            <li class="service-item">
-              <div class="service-row">
-                <span class="service-name">2-layer with step cut</span>
-                <span class="price">$25–$45</span>
-              </div>
-            </li>
-            <li class="service-item">
-              <div class="service-row">
-                <span class="service-name">Bob / Inverted / Any short cut</span>
-                <span class="price">$35–$45</span>
-              </div>
-            </li>
-            <li class="service-item">
-              <div class="service-row">
-                <span class="service-name">All types of bangs</span>
-                <span class="price">$10–$20</span>
-              </div>
-            </li>
-            <li class="service-item">
-              <div class="service-row">
-                <span class="service-name">Butterfly cut</span>
-                <span class="price">$25–$45</span>
-              </div>
-            </li>
-            <li class="service-item">
-              <div class="service-row">
-                <span class="service-name">Fox cut</span>
-                <span class="price">Call for pricing</span>
-              </div>
-            </li>
-            <li class="service-item">
-              <div class="service-row">
-                <span class="service-name">Face framing</span>
-                <span class="price">Call for pricing</span>
-              </div>
-            </li>
-            <li class="service-item">
-              <div class="service-row">
-                <span class="service-name">Hair wash + blow dry</span>
-                <span class="price">$20–$40</span>
-              </div>
+              <div class="service-row"><span class="service-name">Hair wash + blow dry</span><span class="price">$20–$40</span></div>
               <div class="note">Depends on length</div>
             </li>
-            <li class="service-item">
-              <div class="service-row">
-                <span class="service-name">Only haircut, no blow dry</span>
-                <span class="price">$25–$35</span>
-              </div>
-            </li>
+            <li class="service-item"><div class="service-row"><span class="service-name">Only haircut, no blow dry</span><span class="price">$25–$35</span></div></li>
           </ul>
         </section>
 
@@ -385,75 +367,32 @@
           <h2>Facials</h2>
           <ul class="service-list">
             <li class="service-item">
-              <div class="service-row">
-                <span class="service-name">Clean Up</span>
-                <span class="price">$40</span>
-              </div>
+              <div class="service-row"><span class="service-name">Clean Up</span><span class="price">$40</span></div>
               <div class="note">Massage not included</div>
             </li>
+            <li class="service-item"><div class="service-row"><span class="service-name">Fruit Facial</span><span class="price">$65</span></div></li>
+            <li class="service-item"><div class="service-row"><span class="service-name">Whitening Facial</span><span class="price">$65</span></div></li>
             <li class="service-item">
-              <div class="service-row">
-                <span class="service-name">Fruit Facial</span>
-                <span class="price">$65</span>
-              </div>
-            </li>
-            <li class="service-item">
-              <div class="service-row">
-                <span class="service-name">Whitening Facial</span>
-                <span class="price">$65</span>
-              </div>
-            </li>
-            <li class="service-item">
-              <div class="service-row">
-                <span class="service-name">Korean Glass Skin Facial</span>
-                <span class="price">$120</span>
-              </div>
+              <div class="service-row"><span class="service-name">Korean Glass Skin Facial</span><span class="price">$120</span></div>
               <div class="note">With hydra machine</div>
             </li>
+            <li class="service-item"><div class="service-row"><span class="service-name">Gold Facial</span><span class="price">$60</span></div></li>
             <li class="service-item">
-              <div class="service-row">
-                <span class="service-name">Gold Facial</span>
-                <span class="price">$60</span>
-              </div>
-            </li>
-            <li class="service-item">
-              <div class="service-row">
-                <span class="service-name">Hydra Facial</span>
-                <span class="price">$120</span>
-              </div>
+              <div class="service-row"><span class="service-name">Hydra Facial</span><span class="price">$120</span></div>
               <div class="note">LED light included</div>
             </li>
             <li class="service-item">
-              <div class="service-row">
-                <span class="service-name">Bridal Facial</span>
-                <span class="price">$100</span>
-              </div>
+              <div class="service-row"><span class="service-name">Bridal Facial</span><span class="price">$100</span></div>
               <div class="note">1½ hrs</div>
             </li>
+            <li class="service-item"><div class="service-row"><span class="service-name">D-Tan Facial</span><span class="price">$65</span></div></li>
+            <li class="service-item"><div class="service-row"><span class="service-name">Hydrating &amp; Whitening Facial</span><span class="price">$65</span></div></li>
             <li class="service-item">
-              <div class="service-row">
-                <span class="service-name">D-Tan Facial</span>
-                <span class="price">$65</span>
-              </div>
-            </li>
-            <li class="service-item">
-              <div class="service-row">
-                <span class="service-name">Hydrating &amp; Whitening Facial</span>
-                <span class="price">$65</span>
-              </div>
-            </li>
-            <li class="service-item">
-              <div class="service-row">
-                <span class="service-name">Chemical Peel Facial</span>
-                <span class="price">$50</span>
-              </div>
+              <div class="service-row"><span class="service-name">Chemical Peel Facial</span><span class="price">$50</span></div>
               <div class="note">Instant glow, no recovery time</div>
             </li>
             <li class="service-item">
-              <div class="service-row">
-                <span class="service-name">Basic Facial</span>
-                <span class="price">$50</span>
-              </div>
+              <div class="service-row"><span class="service-name">Basic Facial</span><span class="price">$50</span></div>
               <div class="note">Best for teenagers</div>
             </li>
           </ul>
@@ -462,61 +401,23 @@
         <section class="card">
           <h2>Extra Care</h2>
           <ul class="service-list">
+            <li class="service-item"><div class="service-row"><span class="service-name">Herbal Bleach</span><span class="price">$10</span></div></li>
             <li class="service-item">
-              <div class="service-row">
-                <span class="service-name">Herbal Bleach</span>
-                <span class="price">$10</span>
-              </div>
-            </li>
-            <li class="service-item">
-              <div class="service-row">
-                <span class="service-name">Whitening Protein Pack</span>
-                <span class="price">$15</span>
-              </div>
+              <div class="service-row"><span class="service-name">Whitening Protein Pack</span><span class="price">$15</span></div>
               <div class="note">Instant glow, no chemical</div>
             </li>
-            <li class="service-item">
-              <div class="service-row">
-                <span class="service-name">D-Tan Pack</span>
-                <span class="price">$10</span>
-              </div>
-            </li>
+            <li class="service-item"><div class="service-row"><span class="service-name">D-Tan Pack</span><span class="price">$10</span></div></li>
           </ul>
         </section>
 
         <section class="card">
           <h2>Treatment Facial</h2>
           <ul class="service-list">
-            <li class="service-item">
-              <div class="service-row">
-                <span class="service-name">Mature Skin Facial</span>
-                <span class="price">$70</span>
-              </div>
-            </li>
-            <li class="service-item">
-              <div class="service-row">
-                <span class="service-name">Pigmentation Facial</span>
-                <span class="price">$70</span>
-              </div>
-            </li>
-            <li class="service-item">
-              <div class="service-row">
-                <span class="service-name">Acne Pore Facial</span>
-                <span class="price">$65</span>
-              </div>
-            </li>
-            <li class="service-item">
-              <div class="service-row">
-                <span class="service-name">Face Lifting Facial (HIFU)</span>
-                <span class="price">$100</span>
-              </div>
-            </li>
-            <li class="service-item">
-              <div class="service-row">
-                <span class="service-name">Microdermabrasion</span>
-                <span class="price">$50</span>
-              </div>
-            </li>
+            <li class="service-item"><div class="service-row"><span class="service-name">Mature Skin Facial</span><span class="price">$70</span></div></li>
+            <li class="service-item"><div class="service-row"><span class="service-name">Pigmentation Facial</span><span class="price">$70</span></div></li>
+            <li class="service-item"><div class="service-row"><span class="service-name">Acne Pore Facial</span><span class="price">$65</span></div></li>
+            <li class="service-item"><div class="service-row"><span class="service-name">Face Lifting Facial (HIFU)</span><span class="price">$100</span></div></li>
+            <li class="service-item"><div class="service-row"><span class="service-name">Microdermabrasion</span><span class="price">$50</span></div></li>
           </ul>
         </section>
       </div>
@@ -525,7 +426,9 @@
 
   <footer>
     <div class="container">
-      For appointments and updated pricing, please contact us.
+      <div class="footer-card">
+        For appointments and updated pricing, please contact us.
+      </div>
     </div>
   </footer>
 </body>
